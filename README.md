@@ -13,15 +13,9 @@
 [📖 Documentation][docs]
 </div>
 
-Trivy (`tri` pronounced like **tri**gger, `vy` pronounced like en**vy**) is a comprehensive security scanner. It is reliable, fast, extremely easy to use, and it works wherever you need it.
+This is a demo of how to use Aqua Enterprise Security and Trivy Open Source in the CI!
 
-Trivy has different *scanners* that look for different security issues, and different *targets* where it can find those issues.
-
-Targets:
-- Container Image
-- Filesystem
-- Git repository (remote)
-- Kubernetes cluster or resource
+Aqua has different *scanners* that look for different security issues, and different *targets* where it can find those issues.
 
 Scanners:
 - OS packages and software dependencies in use (SBOM)
@@ -29,21 +23,32 @@ Scanners:
 - IaC misconfigurations
 - Sensitive information and secrets
 
-Much more scanners and targets are coming up. Missing something? Let us know!
-
-Read more in the [Trivy Documentation][docs]
-
 ## Quick Start
 
-### Get Trivy
+### Create Github Action
 
-Get Trivy by your favorite installation method. See [installation] section in the documentation for details. For example:
+name: Aqua
+on: pull_request
+jobs:
+  aqua:
+    name: trivy
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-- `apt-get install trivy`
-- `yum install trivy`
-- `brew install aquasecurity/trivy/trivy`
-- `docker run aquasec/trivy`
-- Download binary from https://github.com/aquasecurity/trivy/releases/latest/
+      - name: Run Trivy vulnerability scanner in IaC mode
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          security-checks: 'vuln,config,secret'
+          hide-progress: false
+          format: 'table'
+        env:
+          AQUA_KEY: ${{ secrets.AQUA_KEY }}
+          AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
+          TRIVY_RUN_AS_PLUGIN: 'aqua'
+          GITHUB_TOKEN: ${{ github.token }}
 
 ### General usage
 
