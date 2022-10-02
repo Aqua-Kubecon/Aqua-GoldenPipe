@@ -51,47 +51,14 @@ jobs:
           TRIVY_RUN_AS_PLUGIN: 'aqua'
           GITHUB_TOKEN: ${{ github.token }}
 ```
+The "ENV" environment variables will use us to configure Aqua Enterprise
 
-### General usage
+### Create Pull Request with vulnerability or misconfiguration 
 
-```bash
-trivy <target> [--security-checks <scanner1,scanner2>] TARGET_NAME
-```
-
-Examples:
-
-```bash
-$ trivy image python:3.4-alpine
-```
-
-<details>
-<summary>Result</summary>
-
-https://user-images.githubusercontent.com/1161307/171013513-95f18734-233d-45d3-aaf5-d6aec687db0e.mov
-
-</details>
-
-```bash
-$ trivy fs --security-checks vuln,secret,config myproject/
-```
-
-<details>
-<summary>Result</summary>
-
-https://user-images.githubusercontent.com/1161307/171013917-b1f37810-f434-465c-b01a-22de036bd9b3.mov
-
-</details>
-
-```bash
-$ trivy k8s mycluster
-```
-
-<details>
-<summary>Result</summary>
-
-![k8s summary](docs/imgs/trivy-k8s.png)
-
-</details>
+You can download a few examples from this repository
+- Requirements.txt (Open source vulnerabilities)
+- Insecure-db.tf (Terraform misconfiguration)
+- IaC-secrets.tf (Secret detection)
 
 Find out more in the [Trivy Documentation][docs] - [Getting Started][getting-started]
 
