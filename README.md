@@ -66,9 +66,8 @@ Find out more in the [Trivy Documentation][docs] - [Getting Started][getting-sta
 ## Highlights
 
 - Comprehensive vulnerability detection
-  - OS packages (Alpine Linux, Red Hat Universal Base Image, Red Hat Enterprise Linux, CentOS, AlmaLinux, Rocky Linux, CBL-Mariner, Oracle Linux, Debian, Ubuntu, Amazon Linux, openSUSE Leap, SUSE Enterprise Linux, Photon OS and Distroless)
+  - OS packages (Java, Js (React, etc..), Nodejs, Kotlin, .NET, C#, Python, Go, Swift, C, C++, PHP, Rust, Ruby, Objective C
   - **Language-specific packages** (Bundler, Composer, Pipenv, Poetry, npm, yarn, Cargo, NuGet, Maven, and Go)
-  - High accuracy, especially [Alpine Linux][alpine] and RHEL/CentOS
 - Supply chain security (SBOM support)
   - Support CycloneDX
   - Support SPDX
