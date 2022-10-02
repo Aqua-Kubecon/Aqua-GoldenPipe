@@ -27,6 +27,7 @@ Scanners:
 
 ### Create Github Action
 
+```
 name: Aqua
 on: pull_request
 jobs:
@@ -49,6 +50,7 @@ jobs:
           AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
           TRIVY_RUN_AS_PLUGIN: 'aqua'
           GITHUB_TOKEN: ${{ github.token }}
+```
 
 ### General usage
 
