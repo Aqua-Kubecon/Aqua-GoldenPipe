@@ -1,18 +1,5 @@
 # Aqua-Demo
 
-<div align="center">
-<img src="docs/imgs/logo.png" width="200">
-
-[![GitHub Release][release-img]][release]
-[![Test][test-img]][test]
-[![Go Report Card][go-report-img]][go-report]
-[![License: Apache-2.0][license-img]][license]
-[![GitHub All Releases][github-all-releases-img]][release]
-![Docker Pulls][docker-pulls]
-
-[📖 Documentation][docs]
-</div>
-
 This is a demo of how to use Aqua Enterprise Security and Trivy Open Source in the CI!
 
 Aqua has different *scanners* that look for different security issues, and different *targets* where it can find those issues.
