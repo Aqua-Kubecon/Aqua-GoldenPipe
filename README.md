@@ -92,8 +92,8 @@ Find out more in the [Trivy Documentation][docs] - [Getting Started][getting-sta
 
 ---
 
-Aqua Security Website: [Aqua Security][aquasec]
-Learn about our Software Supply Chain Security Solution [SupplyChain].  
+Aqua Security Website: [Aqua Security][aquasec].
+Learn about our Software Supply Chain Security Solution [SupplyChain][SupplyChain].  
 Contact us about any matter by opening a GitHub Discussion [here][discussions]
 
 
