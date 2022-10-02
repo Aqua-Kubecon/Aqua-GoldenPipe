@@ -2,7 +2,7 @@ name: Aqua
 on: pull_request
 jobs:
   aqua:
-    name: trivy
+    name: Aqua Scanner
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout code
