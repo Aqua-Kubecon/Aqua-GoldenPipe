@@ -59,7 +59,7 @@ You can download a few examples from this repository
 - Misconfiguration detection (IaC scanning) 
   - Wide variety of security checks are provided **out of the box**
   - Kubernetes, Docker, Terraform, and more
-  - User-defined policies using [OPA Rego][rego]
+  - User-defined policies using rgo
 - Secret detection
   - A wide variety of built-in rules are provided **out of the box**
   - User-defined patterns
