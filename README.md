@@ -47,8 +47,6 @@ You can download a few examples from this repository
 - Insecure-db.tf (Terraform misconfiguration)
 - IaC-secrets.tf (Secret detection)
 
-Find out more in the [Trivy Documentation][docs] - [Getting Started][getting-started]
-
 
 ## Highlights
 
