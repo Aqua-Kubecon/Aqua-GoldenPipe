@@ -29,7 +29,9 @@ Our golden pipeline has three main stages, which is how we break down the subsec
 ### SCM
 Integrate scanner to your SCM and enable automated scans to happen on a periodic schedule. 
 
-This way, you (1) establish a secure baseline, and (2) ensure that you're able to detect anything in your existing codebase suddently turning risky / vulnerable.
+This way, you:
+- Establish a secure baseline, and
+- Ensure that you're able to detect anything in your existing codebase suddently turning risky / vulnerable.
 
 We leverage our enterprise features, as they have native integration to all the major SCM providers. This is how we auto-map all repos and run periodic scans on the background. 
 
