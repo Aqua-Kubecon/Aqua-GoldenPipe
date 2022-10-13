@@ -56,14 +56,7 @@ jobs:
           format: 'table'
 ```
 We leverage our enterprise features to automatically add comments to developers on the SCM, with feedback on the vulnerability / risk identified and how to clear it. 
-For certain critical teams and applications, we've leveraged the enterprise policy engine to automatically warn / fail merges based on specific checks relevant to those teams and applications:
-```
-        env:
-          AQUA_KEY: ${{ secrets.AQUA_KEY }}
-          AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
-          TRIVY_RUN_AS_PLUGIN: 'aqua'
-          GITHUB_TOKEN: ${{ github.token }}
-```
+For certain critical teams and applications, we've leveraged the enterprise policy engine to automatically warn / fail merges based on specific checks relevant to those teams and applications.
 
 ### Build
 Integrate scanner as a step on the CI, so that the scan is automatically triggered upon each developer push. You can use the command below:
@@ -118,7 +111,7 @@ We leverage our enterprise features to automatically generate a next-gen SBOM, w
 
 For certain critical teams and applications, we've leveraged the enterprise policy engine to automatically warn / fail build based on specific checks relevant to those teams and applications. 
 
-### Create Pull Request with vulnerability or misconfiguration 
+### Create a pull request with vulnerabilities or misconfigurations 
 To see the results in action, you can download and use a few of the examples from this repository
 - [requirements.txt] (Open source vulnerabilities)
 - [insecure-db.tf] (Terraform misconfiguration)
