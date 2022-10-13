@@ -88,7 +88,28 @@ jobs:
 ```
 In order to automatically generate a basic SBOM listing out all of the dependencies and licenses used, you can integrate the following step on the CI:
 ```
-name: Manifest Generation
+name: Manifest Generation / SBOM
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+jobs:
+  build:
+    name: Checks
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run Trivy in GitHub SBOM mode and submit results to Dependency Snapshots
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          format: 'github'
+          output: 'dependency-results.sbom.json'
+          image-ref: '.'
+          github-pat: '<github_pat_token>'
 ```
 We leverage our enterprise features to automatically generate a next-gen SBOM, which also includes:
 - Security history - Which security scans the artifact went through, and which ones it didn't pass
