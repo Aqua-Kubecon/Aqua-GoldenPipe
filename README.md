@@ -1,10 +1,21 @@
 # Golden Pipeline Template
 
-This is a template, leveraging [trivy] and Aqua [Supply Chain Security] to build a **golden pipeline**.
+This is a template, leveraging [Trivy] and Aqua [Supply Chain Security] to build a **golden pipeline**.
 
 We define a **golden pipeline** as a development pipeline (from source code management, through build and deploy) that is reliable, quick, and secure by default. Think  golden image, then shift it left. 
 
-![Flow](https://user-images.githubusercontent.com/84018957/195563312-f7674b57-2dcc-40e1-abcd-3a9b4412a2ea.png)
+![Flow v2](https://user-images.githubusercontent.com/84018957/195580736-3bede00b-bb35-4b12-b8b2-f141c28b6776.png)
+
+The template below is based on open-source [Trivy] scanners, which scan for:
+ - OS packages and software dependencies in use (SBOM)
+ - Known vulnerabilities (CVEs)
+ - IaC misconfigurations
+ - Sensitive information and secrets
+
+We complement that with our enterprise [Supply Chain Security] features, which allow us to:
+ - Be granular with our scans thanks to **assurance policies** and **suppression rules**
+ - Leverage organization groups to make sure the in-workflow remediation and alerts (e.g., comments on SCM, warning / failing builds) are application specifics
+ - 
 
 Aqua has different *scanners* that look for different security issues, and different *targets* where it can find those issues.
 
@@ -95,4 +106,8 @@ Learn about our Software Supply Chain Security Solution: [SupplyChain][SupplyCha
 [oss]: https://www.aquasec.com/products/open-source-projects/
 [discussions]: https://github.com/aquasecurity/trivy/discussions
 [Supply Chain Security]: https://www.aquasec.com/products/software-supply-chain-security/
-[trivy]: https://github.com/aquasecurity/trivy
+[Trivy]: https://github.com/aquasecurity/trivy
+
+---
+
+
