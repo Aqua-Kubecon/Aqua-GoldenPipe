@@ -1,6 +1,10 @@
-# Aqua-Demo
+# Golden Pipeline Template
 
-This is a demo of how to use Aqua Enterprise Security and Trivy Open Source in the CI!
+This is a template, leveraging [trivy] and Aqua [Supply Chain Security] to build a **golden pipeline**.
+
+We define a **golden pipeline** as a development pipeline (from source code management, through build and deploy) that is reliable, quick, and secure by default. Think  golden image, then shift it left. 
+
+![Flow](https://user-images.githubusercontent.com/84018957/195563312-f7674b57-2dcc-40e1-abcd-3a9b4412a2ea.png)
 
 Aqua has different *scanners* that look for different security issues, and different *targets* where it can find those issues.
 
@@ -90,4 +94,5 @@ Learn about our Software Supply Chain Security Solution: [SupplyChain][SupplyCha
 [aquasec]: https://aquasec.com
 [oss]: https://www.aquasec.com/products/open-source-projects/
 [discussions]: https://github.com/aquasecurity/trivy/discussions
-[SupplyChain]: https://www.aquasec.com/products/software-supply-chain-security/
+[Supply Chain Security]: https://www.aquasec.com/products/software-supply-chain-security/
+[trivy]: https://github.com/aquasecurity/trivy
