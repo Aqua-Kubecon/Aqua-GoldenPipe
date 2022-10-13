@@ -79,7 +79,7 @@ jobs:
           hide-progress: false
           format: 'table'
 ```
-In order to automatically generate a basic SBOM listing out all of the dependencies and licenses used, you can integrate the following step on the CI:
+Once the image has been built, in order to automatically generate a basic SBOM listing out all of the dependencies and licenses used, you can integrate the following step on the CI:
 ```
 name: Manifest Generation / SBOM
 on:
