@@ -109,9 +109,34 @@ jobs:
 We leverage our enterprise features to automatically generate a next-gen SBOM, which also includes:
 - Security history - Which security scans the artifact went through, and which ones it didn't pass
 - The path of the artifact - Is it currently in prod, where it was built, which commits where a part of it, and which developer owns it
-- The security posture of the pipeline - Were there minimum reviewers? Branch configurations? MFA by the developer? and more
+- The security posture of the pipeline - Were there minimum reviewers? Branch protections? MFA by the developer? and more
 
 For certain critical teams and applications, we've leveraged the enterprise policy engine to automatically warn / fail build based on specific checks relevant to those teams and applications. 
+
+### Branch protection policy
+On top of securing the code itself with the three steps mentioned above, by enforcing our branch protection policy we can ensure that all code is not only scanned, but also reviewed and approved. 
+
+An easy way to set branch protections at the org level is via [safe settings]. 
+
+After defining our specific branch policy, we validate it using [chain-bench], which benchmarks the repo's configuration against best practices:
+```
+name: Chain bench
+jobs:
+  chain_bench_scan:
+    runs-on: ubuntu-latest
+    name: Test Job
+    steps:
+      - name: Chain Bench
+        id: chain-bench
+        uses: aquasecurity/chain-bench-action@v1.0.0
+        with:
+          repository-url: ${{ github.server_url }}/${{ github.repository }} 
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Using the github action output from the scan step "chain-bench-result" (JSON so you can run rego/jq against it)
+      - name: Echo
+        run: echo ${{ steps.chain-bench.outputs.chain-bench-result }}
+```
 
 ### Create a pull request with vulnerabilities or misconfigurations 
 To see the results in action, you can download and use a few of the examples from this repository
@@ -141,4 +166,6 @@ Learn more about our Software [Supply Chain Security] Solution
 [requirements.txt]: https://github.com/Aqua-Kubecon/Aqua-Demo/blob/main/requirements.txt
 [insecure-db.tf]: https://github.com/Aqua-Kubecon/Aqua-Demo/blob/main/insecure-db.tf
 [iac-secrets.tf]: https://github.com/Aqua-Kubecon/Aqua-Demo/blob/main/iac-secrets.tf
+[safe settings]: https://github.com/github/safe-settings
+[chain-bench]: https://github.com/aquasecurity/chain-bench
 
