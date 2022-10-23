@@ -57,6 +57,17 @@ jobs:
           hide-progress: false
           format: 'table'
 ```
+If you would like to upload SARIF results to GitHub code scanning, you can switch the format to 'sarif' and add the following step to the above:
+```
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+```          
+
 We leverage our enterprise features to automatically add comments to developers on the SCM, with feedback on the vulnerability / risk identified and how to clear it. 
 For certain critical teams and applications, we've leveraged the enterprise policy engine to automatically warn / fail merges based on specific checks relevant to those teams and applications.
 
@@ -120,7 +131,6 @@ An easy way to set branch protections at the org level is via [safe settings].
 
 After defining our specific branch policy, we validate it using [chain-bench], which benchmarks the repo's configuration against best practices:
 ```
-name: Chain bench
 jobs:
   chain_bench_scan:
     runs-on: ubuntu-latest
@@ -132,8 +142,9 @@ jobs:
         with:
           repository-url: ${{ github.server_url }}/${{ github.repository }} 
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      # Using the github action output from the scan step "chain-bench-result" (JSON so you can run rego/jq against it)
+```
+And then we use the github action output from the scan step "chain-bench-result" to get a JSON we can run rego/jq against
+```
       - name: Echo
         run: echo ${{ steps.chain-bench.outputs.chain-bench-result }}
 ```
