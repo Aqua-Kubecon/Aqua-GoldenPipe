@@ -125,9 +125,19 @@ We leverage our enterprise features to automatically generate a next-gen SBOM, w
 For certain critical teams and applications, we've leveraged the enterprise policy engine to automatically warn / fail build based on specific checks relevant to those teams and applications. 
 
 ### Branch protection policy
-On top of securing the code itself with the three steps mentioned above, by enforcing our branch protection policy we can ensure that all code is not only scanned, but also reviewed and approved. 
 
-An easy way to set branch protections at the org level is via [safe settings]. 
+On top of securing the code itself with the three steps mentioned above, by enforcing our [branch protection policy](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches) we can ensure that all code is not only scanned, but also from a known and trusted contributor, reviewed and approved. Some key branch protection policies to consider are as follows:
+
+* [Require a pull request before merging](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)
+    * As a sub-config, approvals should also be required.
+* [Require status checks to pass before merging](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)
+    * As a sub-config, add the 'Trivy' check which should exist if Trivy scan has been configured on the repository workflow
+* [Require signed commits](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits)
+* [Do not allow bypassing the above settings](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#do-not-allow-bypassing-the-above-settings)
+
+Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see "[GitHub's products](https://docs.github.com/en/get-started/learning-about-github/githubs-products)."
+
+If running an organization you may want to enable branch protection policies across the organization. An easy way to set branch protections at the org level is via the [safe settings] project. 
 
 After defining our specific branch policy, we validate it using [chain-bench], which benchmarks the repo's configuration against best practices:
 ```
