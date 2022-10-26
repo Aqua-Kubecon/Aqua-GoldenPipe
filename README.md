@@ -139,13 +139,6 @@ Protected branches are available in public repositories with GitHub Free and Git
 
 If running an organization you may want to enable branch protection policies across the organization. An easy way to set branch protections at the org level is via the [safe settings] project. 
 
-### GitHub secret scanning and push protection
-
-In addition to scanning for secrets already in your repositories, you should also consider stopping them at the source via Github secret scanning with [push protection](https://docs.github.com/en/enterprise-server@3.5/code-security/secret-scanning/protecting-pushes-with-secret-scanning). Push protection will actually stop the commit from being pushed at the client side. 
-
-> *Note:*
-> Secret push protection is currently in preview and subject to change.
-
 ### Chain bench
 
 After defining our specific branch policy, we validate it using [chain-bench], which benchmarks the repo's configuration against best practices:
