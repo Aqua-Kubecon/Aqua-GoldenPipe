@@ -1,0 +1,18 @@
+{
+	"name": "App Test",
+	"version": "0.0.1",
+	"description": "Just a test",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Eilon",
+	"license": "MIT",
+	"repository": "Cloud Repo",
+	"dependencies": {
+		"express": "4.18.1",
+		"lodash": "4.17.21",
+		"react": "18.2.0",
+		"axios": "0.19.2"
+	}
+}
